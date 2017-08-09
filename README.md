@@ -2,7 +2,7 @@
 
 A collection cross-track configuration visualizations for Exercism.
 
-This program uses for input a unified Exercism configuration file (the --uniconfig option) you may need to re-generate it from [exercism-uniconfig](https://www.npmjs.com/package/exercism-uniconfig). There is [one used by default](./data/uniconfig.json) but it may be outdated.
+This program uses for input a unified Exercism configuration file (the --uniconfig option or piped in via stdin) you may need to re-generate it from [exercism-uniconfig](https://www.npmjs.com/package/exercism-uniconfig). There is [one used by default](./data/uniconfig.json) but it may be outdated.
 
 ## Reports
 
