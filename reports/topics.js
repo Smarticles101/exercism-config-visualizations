@@ -1,40 +1,41 @@
-let table = require('cli-table2');
+// This report will list all used topics, the usage count and the tracks using it
 
-// This report will list all used topics and the # of time used
 module.exports = function(configfile){
 
-  let topics = {};
+  let returner = [['Topic', 'Count', 'Track']],
+      topics = {}; // map to store topic information slug -> topic data object
+
+  // collect all topics by iterating through each track
   for(let trackSlug in configfile.tracks){
-//    console.log(trackSlug);
+
     for(let exercise of configfile.tracks[trackSlug].exercises){
-  //    console.log(exercise.topics);
+
       if(!exercise.topics) continue;
       for(let topic of exercise.topics){
         let normalized = topic.toLowerCase(); // there is a capitalization issue with topics
+
+        // first time seeing this topic, save as topic data object with own slug as key
         if(!topics.hasOwnProperty(normalized)) topics[normalized] = {
           topic: normalized,
           count: 0,
-          tracks: {}
+          tracks: {} // map: to track only once
         }
-       
+
         topics[normalized].count++;
         topics[normalized].tracks[trackSlug] = true;
       }
     }
-
   }
-
 
   topics = Object.values(topics);
-  // xx -- more sort options for topics?  
+  // xx -- more sort options for topics?
   topics.sort((a, b) => (b.count - a.count));
 
-  let t = new table({
-    head: ['Topic', 'Count', 'Track']
-  });
-
   for(let topic of topics){
-    t.push([topic.topic, topic.count, Object.keys(topic.tracks).join(', ')]);
+    let tracks = Object.keys(topic.tracks);
+    tracks.sort();
+    returner.push([topic.topic, topic.count, tracks.join(', ')]);
   }
-  console.log(t.toString());
+
+  return returner;
 }

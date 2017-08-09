@@ -1,6 +1,7 @@
 // This report will list all active exercises by track
 module.exports = function(configfile){
 
+  let returner = [['Track', 'Count', 'Exercises']];
   for(let trackSlug in configfile.tracks){
     let track = configfile.tracks[trackSlug];
     let exercises = [];
@@ -11,8 +12,8 @@ module.exports = function(configfile){
       exercises.push(exercise.slug);
     }
 
-    console.log(`${trackSlug} (${exercises.length}):`, ':', exercises.join(', '));
-    console.log('');
+    returner.push([trackSlug, exercises.length, exercises.join(', ')]);
   }
 
+  return returner;
 }
