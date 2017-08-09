@@ -1,0 +1,26 @@
+{
+  "name": "exercism-config-visualizations",
+  "version": "0.0.1",
+  "description": "A command line tool for exercism cross-track visualizations of configuration file information.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "exercism-config-visualizations": "./bin/exercism-config-visualizations"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tleen/exercism-config-visualizations.git"
+  },
+  "author": "Tom Leen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tleen/exercism-config-visualizations/issues"
+  },
+  "homepage": "https://github.com/tleen/exercism-config-visualizations#readme",
+  "dependencies": {
+    "cli-table2": "0.2.0",
+    "commander": "2.11.0"
+  }
+}
