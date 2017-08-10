@@ -10,11 +10,19 @@ This program uses for input a unified Exercism configuration file (the --uniconf
 npm install -g exercism-config-visualizations
 ```
 
+## Contribute
+
+This has been designed to make it easy to create your own reports. Make a file named with the slug for your report in [reports](reports/). See the [exercise-count](reports/exercise-count.js) report as a good example of how to make a new report.
+
+If you return false the program will assume you handled output yourself. Otherwise return a string for that output. If you want to take advantage of CSV or tabular output return a multi-dimensional array with headers as the first row.
+
+
 ## Reports
 
 - [unconfigured](#unconfigured) - List Track(s) that are missing: Diff(iculty) or Topics
 - [exercises](#exercises) - Active exercises per track: Track, Count, Exercises (List)
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
+- [exercise-count](#exercise-count) - List the number of exercises per track: Track, Exercise Count
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
 - [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
 
@@ -72,6 +80,24 @@ exercism-config-visualizations --tabular exercise hello-world
 ├─────────────┼────────────────────┼──────┼────────────────────────────────────────────────────────────────────────┤
 │ hello-world │ Swift              │ 1    │ Text formatting, Optional values                                       │
 └─────────────┴────────────────────┴──────┴────────────────────────────────────────────────────────────────────────┘
+```
+
+### exercise-count
+This is a listing of track slug and number of exercises present in the configfile.
+
+```bash
+exercism-config-visualizations exercise-count
+```
+
+```csv
+Track,Exercise Count
+bash,14
+c,38
+...
+scala,86
+sml,8
+swift,75
+vbnet,7
 ```
 
 ### topics
