@@ -20,11 +20,12 @@ If you return false the program will assume you handled output yourself. Otherwi
 ## Reports
 
 - [unconfigured](#unconfigured) - List Track(s) that are missing: Diff(iculty) or Topics
-- [exercises](#exercises) - Active exercises per track: Track, Count, Exercises (List)
+- [exercises](#exercises) - Active exercises per track: Track, Count, Exercises
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
 - [exercise-count](#exercise-count) - List the number of exercises per track: Track, Exercise Count
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
 - [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
+- [difficulty](#difficulty) - Group exercises by difficulty level: Track, Diff(iculty), Count, Exercises 
 
 ### unconfigured
 
@@ -136,4 +137,21 @@ clojure,1,0
 sml,1,0
 swift,3.79,2.06
 vbnet,1,0
+```
+
+### difficulty
+
+Listing of exercises grouped by difficulty level. You may specify multiple tracks for a combined listing.
+
+```bash
+bin/exercism-config-visualizations difficulty go
+```
+
+```csv
+Track,Diff,Count,Exercises
+go,1,8,"hello-world, leap, gigasecond, hamming, raindrops, accumulate, etl, scrabble-score"
+go,2,9,"pangram, bob, difference-of-squares, grains, luhn, rna-transcription, roman-numerals, strain, nucleotide-count"
+...
+go,8,1,forth
+go,9,2,"react, connect"
 ```
