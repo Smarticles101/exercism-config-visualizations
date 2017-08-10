@@ -37,11 +37,11 @@ exercism-config-visualizations unconfigured
 
 ```csv
 Track,Diff,Topics
-clojure,yes,yes
-coffeescript,yes,yes
+clojure,no,no
+coffeescript,no,no
 ...
-powershell,yes,yes
-sml,yes,yes
+powershell,no,no
+sml,no,no
 ```
 
 ### exercises

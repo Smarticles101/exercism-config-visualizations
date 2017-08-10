@@ -2,7 +2,7 @@
 // on a per track basis.
 module.exports = function(configfile){
 
-  let boolTranslate = b => (b ? 'yes' : 'no'),
+  let boolTranslate = b => (b ? 'no' : 'yes'),
       data = require('./averages')(configfile), // piggyback on averages to mine tracks with missing data
       output = [['Track', 'Diff', 'Topics']];
 
@@ -18,6 +18,6 @@ module.exports = function(configfile){
       boolTranslate(topics)
     ]);
   }
-  
+
   return output;
 }
