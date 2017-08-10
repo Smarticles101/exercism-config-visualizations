@@ -12,10 +12,28 @@ npm install -g exercism-config-visualizations
 
 ## Reports
 
+- [unconfigured](#unconfigured) - List Track(s) that are missing: Diff(iculty) or Topics
 - [exercises](#exercises) - Active exercises per track: Track, Count, Exercises (List)
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
 - [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
+
+### unconfigured
+
+List tracks without topics or difficulty set.
+
+```bash
+exercism-config-visualizations unconfigured
+```
+
+```csv
+Track,Diff,Topics
+clojure,yes,yes
+coffeescript,yes,yes
+...
+powershell,yes,yes
+sml,yes,yes
+```
 
 ### exercises
 
