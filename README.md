@@ -15,6 +15,7 @@ npm install -g exercism-config-visualizations
 - [exercises](#exercises) - Active exercises per track: Track, Count, Exercises (List)
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
+- [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
 
 ### exercises
 
@@ -72,4 +73,23 @@ transforming,199,"csharp, ecmascript, elixir, fsharp, go, javascript, lisp, lua,
 function overloading,1,scala
 metaprogramming,1,groovy
 
+```
+
+### averages
+
+Outputs the average difficulty and number of topics assigned to each exercise.
+
+```bash
+exercism-config-visualizations averages
+```
+
+```csv
+Track,Diff,Topics
+bash,1.50,1.93
+c,2.63,3.11
+clojure,1,0
+...
+sml,1,0
+swift,3.79,2.06
+vbnet,1,0
 ```
