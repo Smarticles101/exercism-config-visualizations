@@ -1,7 +1,6 @@
 # exercism-config-visualizations
 
-A collection cross-track configuration visualizations for Exercism.
-
+A collection of cross-track configuration visualizations for Exercism.
 
 ## Install
 
