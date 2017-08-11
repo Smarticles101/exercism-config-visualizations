@@ -34,7 +34,7 @@ You may output the results of a standard report in a number of formats.
 * md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/) (default)
 * csv - useful for opening as a spreadsheet program or piping to another processor
 * table - a no-frills text-based table
-* json - a JSON file with data embedded in a two-dimensional array
+* json - a JSON file with output data multi-dimensional array.
 
 ## Contribute
 
@@ -109,11 +109,11 @@ hello-world  swift         1     Text formatting, Optional values
 This is a listing of track slug and number of exercises present in the configfile.
 
 ```bash
-exercism-config-visualizations exercise-count --format json
+exercism-config-visualizations difficulty go --format json
 ```
 
 ```json
-[["Track","Exercise Count"],["csharp",107],["fsharp",104],["ruby",89],["python",87],["go",87],["scala",86],["java",85],["elixir",85],["haskell",82],["javascript",77],["swift",75],["lua",75],["ecmascript",74],["perl5",65],["rust",64],["clojure",60],["php",52],["objective-c",42],["ocaml",41],["erlang",38],["c",38],["cpp",38],["lisp",30],["r",29],["perl6",24],["coffeescript",21],["dlang",18],["bash",14],["groovy",13],["plsql",10],["sml",8],["vbnet",7],["powershell",2]]
+[["Track","Diff","Count","Exercises"],["go","1",8,["hello-world","leap","gigasecond","hamming","raindrops","accumulate","etl","scrabble-score"]],["go","2",9,["pangram","bob","difference-of-squares","grains","luhn","rna-transcription","roman-numerals","strain","nucleotide-count"]],["go","3",25,["clock","acronym","triangle","series","parallel-letter-frequency","isogram","crypto-square","largest-series-product","sieve","protein-translation","anagram","word-count","robot-name","atbash-cipher","phone-number","prime-factors","nth-prime","beer-song","wordy","meetup","tree-building","kindergarten-garden","simple-cipher","tournament","all-your-base"]],["go","4",13,["twelve-days","house","pascals-triangle","bank-account","food-chain","perfect-numbers","allergies","diamond","custom-set","pig-latin","matrix","word-search","ledger"]],["go","5",18,["error-handling","secret-handshake","queen-attack","sum-of-multiples","pythagorean-triplet","circular-buffer","transpose","diffie-hellman","grade-school","saddle-points","binary-search","binary-search-tree","paasio","minesweeper","poker","variable-length-quantity","change","bowling"]],["go","6",2,["palindrome-products","robot-simulator"]],["go","7",4,["bracket-push","say","ocr-numbers","pov"]],["go","8",1,["forth"]],["go","9",2,["react","connect"]]]
 ```
 
 ### implementation-count
