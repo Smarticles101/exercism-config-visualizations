@@ -32,6 +32,7 @@ function getUniconfig(filename=''){
         }
       });
     }else{
+      console.error('Using the default uniconfiguration file. It may be out of date:', uniconfigDefault.generated);
       return resolve(uniconfigDefault);
     }
   });
