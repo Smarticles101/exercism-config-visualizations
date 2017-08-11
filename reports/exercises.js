@@ -12,7 +12,7 @@ module.exports = function(configfile){
       exercises.push(exercise.slug);
     }
 
-    returner.push([trackSlug, exercises.length, exercises.join(', ')]);
+    returner.push([trackSlug, exercises.length, exercises]);
   }
 
   return returner;

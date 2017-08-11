@@ -34,7 +34,7 @@ module.exports = function(configfile){
   for(let topic of topics){
     let tracks = Object.keys(topic.tracks);
     tracks.sort();
-    returner.push([topic.topic, topic.count, tracks.join(', ')]);
+    returner.push([topic.topic, topic.count, tracks]);
   }
 
   return returner;

@@ -11,7 +11,7 @@ module.exports = function(configfile, targets){
         continue;
       }
 
-      output.push([exercise.slug, trackSlug, exercise.difficulty, exercise.topics.join(', ')]);
+      output.push([exercise.slug, trackSlug, exercise.difficulty, exercise.topics]);
     }
   }
 

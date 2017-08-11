@@ -1,8 +1,8 @@
-let os = require('os'),
+let format = require('../lib/format'),
+    os = require('os'),
     table = require('markdown-table');
 
 module.exports = function formatMarkdownTable(data){
-  return table(data) + os.EOL; // table looks better with a line break at end
+  let d = format.dataFlatten(data, ', ');
+  return table(d) + os.EOL; // table looks better with a line break at end
 }
-
-

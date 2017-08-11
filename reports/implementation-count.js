@@ -3,10 +3,10 @@ module.exports = function(configfile, targets){
 
   let output = [[ 'Exercise', 'Count', 'Tracks']],
       exercises = {};
-  
-  
+
+
   for(let trackSlug in configfile.tracks){
-    
+
     for(let exercise of configfile.tracks[trackSlug].exercises){
       let {slug} = exercise;
 
@@ -16,7 +16,7 @@ module.exports = function(configfile, targets){
       }
 
       exercises[slug].tracks.push(trackSlug);
-    }  
+    }
   }
 
   exercises = Object.values(exercises);
@@ -26,9 +26,9 @@ module.exports = function(configfile, targets){
     output.push([
       exercise.slug,
       exercise.tracks.length,
-      exercise.tracks.join(', ')
+      exercise.tracks
     ]);
   }
-  
+
   return output;
 }

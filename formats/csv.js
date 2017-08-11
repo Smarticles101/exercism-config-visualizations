@@ -1,5 +1,7 @@
-let aToCSV = require('array-to-csv');
+let aToCSV = require('array-to-csv'),
+    format = require('../lib/format');
 
 module.exports = function formatCSV(data){
-  return aToCSV(data);
+  let d = format.dataFlatten(data, ' ');
+  return aToCSV(d);
 }
