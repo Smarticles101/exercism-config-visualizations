@@ -14,7 +14,7 @@ npm install -g exercism-config-visualizations
 exercism-config-visualizations --format csv --uniconfig ./data/uniconfig.json averages
 ```
 
-* format - choose the [output format](#output-format) for the output, defaults to csv
+* format - choose the [output format](#output-format) for the output, defaults to md (markdown)
 * uniconfig - the location of your [uniconfig file](#uniconfig), defaults to internal (probably outdated) uniconfig. May also be provided via stdin
 
 ## Uniconfig
