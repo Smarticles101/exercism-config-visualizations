@@ -68,20 +68,15 @@ This is a general dump of exercise information across tracks. You may use multip
 exercism-config-visualizations --tabular exercise hello-world
 ```
 
-```text
-┌─────────────┬────────────────────┬──────┬────────────────────────────────────────────────────────────────────────┐
-│ Exercise    │ Track              │ Diff │ Topics                                                                 │
-├─────────────┼────────────────────┼──────┼────────────────────────────────────────────────────────────────────────┤
-│ hello-world │ Bash               │ 1    │ stdout                                                                 │
-├─────────────┼────────────────────┼──────┼────────────────────────────────────────────────────────────────────────┤
-│ ...         │                    │      │                                                                        │
-├─────────────┼────────────────────┼──────┼────────────────────────────────────────────────────────────────────────┤
-│ hello-world │ ECMAScript         │ 1    │ Control-flow (conditionals), Optional values, Strings, Text formatting │
-├─────────────┼────────────────────┼──────┼────────────────────────────────────────────────────────────────────────┤
-│ ...         │                    │      │                                                                        │
-├─────────────┼────────────────────┼──────┼────────────────────────────────────────────────────────────────────────┤
-│ hello-world │ Swift              │ 1    │ Text formatting, Optional values                                       │
-└─────────────┴────────────────────┴──────┴────────────────────────────────────────────────────────────────────────┘
+```csv
+Exercise,Track,Diff,Topics
+hello-world,bash,1,stdout
+hello-world,c,1,"control-flow (if-statements), optional values, text formatting"
+hello-world,clojure,1,
+...
+hello-world,rust,1,println!
+hello-world,scala,1,Strings
+hello-world,swift,1,"Text formatting, Optional values"
 ```
 
 ### exercise-count
