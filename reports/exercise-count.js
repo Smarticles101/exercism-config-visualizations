@@ -11,6 +11,7 @@ module.exports = function(configfile, targets){
     returner.push([slug, track.exercises.length]);
   }
 
+  returner.sort((a, b) => b[1] - a[1]);
   // returning a two dimensional array which will allow the program
   // to output as CSV or tabular.
   return returner;
