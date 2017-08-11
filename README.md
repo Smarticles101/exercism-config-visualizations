@@ -23,7 +23,7 @@ This program uses for input a unified Exercism configuration file (the --uniconf
 
 You can pipe the input from exercism-uniconfig directly into this program.
 ```bash
-exercism-uniconfig | bin/exercism-config-visualizations topics
+exercism-uniconfig | exercism-config-visualizations topics
 ```
 
 It is more efficient to save it locally as a file and re-use that.
