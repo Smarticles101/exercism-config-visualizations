@@ -32,8 +32,8 @@ It is more efficient to save it locally as a file and re-use that.
 You may output the results of a standard report in a number of formats.
 
 * csv - this is the default format, useful for opening in a spreadsheet program or piping to another processor
-* md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/).
-* table - a no-frills text-based table.
+* md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/)
+* table - a no-frills text-based table
 * json - a JSON file with data embedded in a two-dimensional array
 
 ## Contribute
