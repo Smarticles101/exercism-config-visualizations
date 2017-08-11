@@ -1,8 +1,6 @@
-let aToCSV = require('array-to-csv'),
-    os = require('os'),
+let os = require('os'),
     program = require('commander'),
     pkg = require('./package.json'),
-    table = require('cli-table2'),
     uniconfigDefault = require('./data/uniconfig.json');
 
 
@@ -43,7 +41,7 @@ function getUniconfig(filename=''){
 // would rather use .command
 program
   .version(pkg.version)
-  .option('-t, --tabular', 'try to display output in a table, default output is CSV')
+  .option('-f, --format <format>', 'output format for standard reports: csv(default), tabular')
   .option('-u, --uniconfig <path>', 'set configuration file input. defaults to ./data/uniconfig.json')
   .arguments('<report> [targets...]', 'See README for reports and target information')
   .action((report, targets, options) => {
@@ -52,35 +50,23 @@ program
     // - getting the uniconfig file
     // - passing it and the targets option to the called report
     // - outputting return report data
-
     getUniconfig(options.uniconfig)
       .then((uniconfig) => {
         let data = require(`./reports/${report}.js`)(uniconfig, targets),
+            format = (options.format ? options.format : 'csv'),
             output = data; // track output as what we will end up printing
 
         // a few things may happen based on output format
         // - if falsey assume the report handled it and don't do anything
-        // - if it is an array (of arrays), use the tabular argument to decide to output as table or CSV (dafault)
+        // - if it is an array (of arrays), use the format argument to call the proper formatter
         // - or else output it as whatever it returned as
         if(!data) return;
 
         if(Array.isArray(data)){
-
-          if(options.tabular){
-            let t = new table({
-              head: data.shift()
-            });
-            for(let r of data){
-              t.push(r);
-            }
-            output = t.toString() + os.EOL; // table looks better with a line break at end
-
-          }else{ // output as CSV by default
-            output = aToCSV(data);
-          }
+          output = require(`./formats/${format}`)(data);
         }else{
             // xx - what if not string?
-            output += os.EOL // regular strings also look better with a linebreak
+            output += os.EOL // regular strings look better with a linebreak
         }
 
         return process.stdout.write(output);

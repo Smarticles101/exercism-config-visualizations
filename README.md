@@ -2,7 +2,6 @@
 
 A collection cross-track configuration visualizations for Exercism.
 
-This program uses for input a unified Exercism configuration file (the --uniconfig option or piped in via stdin) you may need to re-generate it from [exercism-uniconfig](https://www.npmjs.com/package/exercism-uniconfig). There is [one used by default](./data/uniconfig.json) but it may be outdated.
 
 ## Install
 
@@ -10,9 +9,28 @@ This program uses for input a unified Exercism configuration file (the --uniconf
 npm install -g exercism-config-visualizations
 ```
 
+## Usage
+
+```bash
+exercism-config-visualizations --format csv --uniconfig ./data/uniconfig.json averages
+```
+
+* format - CSV is the default output format, you may also use 'table' for tabular output.
+* uniconfig - The location of your [uniconfig file](#uniconfig), defaults to internal (probably outdated) uniconfig. May also be provided via stdin.
+
+## Uniconfig
+This program uses for input a unified Exercism configuration file (the --uniconfig option or piped in via stdin) you may need to re-generate it from [exercism-uniconfig](https://www.npmjs.com/package/exercism-uniconfig). There is [one used by default](./data/uniconfig.json) but it may be outdated.
+
+You can pipe the input from exercism-uniconfig directly into this program.
+```bash
+exercism-uniconfig | bin/exercism-config-visualizations topics
+```
+
+It is more efficient to save it locally as a file and re-use that.
+
 ## Contribute
 
-This has been designed to make it easy to create your own reports. Make a file named with the slug for your report in [reports](reports/). See the [exercise-count](reports/exercise-count.js) report as a good example of how to make a new report.
+This has been designed to make it easy to create your own reports. Make a file named with the slug for your report in [reports](reports/). See the [exercise-count](reports/exercise-count.js) report as a good example of how to make a new report. I encourage others to submit any interesting reports for inclusion in the tool.
 
 If you return false the program will assume you handled output yourself. Otherwise return a string for that output. If you want to take advantage of CSV or tabular output return a multi-dimensional array with headers as the first row.
 
@@ -65,7 +83,7 @@ vbnet,7,"bob, anagram, binary, allergies, atbash-cipher, accumulate, crypto-squa
 This is a general dump of exercise information across tracks. You may use multiple slugs to show more than one exercise per track.
 
 ```bash
-exercism-config-visualizations --tabular exercise hello-world
+exercism-config-visualizations exercise hello-world
 ```
 
 ```csv
@@ -119,8 +137,7 @@ nucleotide-codons,1,rust
 Outputs a listing of topics ordered by usage frequency descending with listing of tracks using that topic. The Topic name is lowercased due to some inconsistent casing between tracks.
 
 ```bash
-exercism-config-visualizations --uniconfig=./data/uniconfig.json topics
-
+exercism-config-visualizations topics
 ```
 
 ```csv
