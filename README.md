@@ -31,8 +31,8 @@ It is more efficient to save it locally as a file and re-use that.
 
 You may output the results of a standard report in a number of formats.
 
-* csv - this is the default format, useful for opening in a spreadsheet program or piping to another processor
-* md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/)
+* md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/) (default)
+* csv - useful for opening as a spreadsheet program or piping to another processor
 * table - a no-frills text-based table
 * json - a JSON file with data embedded in a two-dimensional array
 
@@ -62,13 +62,15 @@ List tracks without topics or difficulty set.
 exercism-config-visualizations unconfigured
 ```
 
-```csv
-Track,Diff,Topics
-clojure,no,no
-coffeescript,no,no
+```text
+| Track        | Diff | Topics |
+| ------------ | ---- | ------ |
+| clojure      | no   | no     |
+| coffeescript | no   | no     |
 ...
-powershell,no,no
-sml,no,no
+| sml          | no   | no     |
+| vbnet        | no   | no     |
+
 ```
 
 ### exercises
@@ -76,7 +78,7 @@ sml,no,no
 A listing of all active exercises per track.
 
 ```bash
-exercism-config-visualizations exercises
+exercism-config-visualizations exercises --format csv
 ```
 
 ```csv
@@ -91,53 +93,45 @@ vbnet,7,"bob, anagram, binary, allergies, atbash-cipher, accumulate, crypto-squa
 This is a general dump of exercise information across tracks. You may use multiple slugs to show more than one exercise per track.
 
 ```bash
-exercism-config-visualizations exercise hello-world
+exercism-config-visualizations exercise hello-world --format table
 ```
 
-```csv
-Exercise,Track,Diff,Topics
-hello-world,bash,1,stdout
-hello-world,c,1,"control-flow (if-statements), optional values, text formatting"
-hello-world,clojure,1,
+```text
+Exercise     Track         Diff  Topics
+hello-world  bash          1     stdout
+hello-world  c             1     control-flow (if-statements), optional values, text formatting
 ...
-hello-world,rust,1,println!
-hello-world,scala,1,Strings
-hello-world,swift,1,"Text formatting, Optional values"
+hello-world  scala         1     Strings
+hello-world  swift         1     Text formatting, Optional values
 ```
 
 ### exercise-count
 This is a listing of track slug and number of exercises present in the configfile.
 
 ```bash
-exercism-config-visualizations exercise-count
+exercism-config-visualizations exercise-count --format json
 ```
 
-```csv
-Track,Exercise Count
-bash,14
-c,38
-...
-scala,86
-sml,8
-swift,75
-vbnet,7
+```json
+[["Track","Exercise Count"],["csharp",107],["fsharp",104],["ruby",89],["python",87],["go",87],["scala",86],["java",85],["elixir",85],["haskell",82],["javascript",77],["swift",75],["lua",75],["ecmascript",74],["perl5",65],["rust",64],["clojure",60],["php",52],["objective-c",42],["ocaml",41],["erlang",38],["c",38],["cpp",38],["lisp",30],["r",29],["perl6",24],["coffeescript",21],["dlang",18],["bash",14],["groovy",13],["plsql",10],["sml",8],["vbnet",7],["powershell",2]]
 ```
 
 ### implementation-count
-This lists all the exercises found in the configfile, # of occurrences and list the tracks that implement it.
+This lists all the exercises found in the configfiles, # of occurrences and list the tracks that implement it.
 
 ```bash
 exercism-config-visualizations implementation-count
 ```
 
-```csv
-Exercise,Count,Tracks
-hamming,30,"bash, c, clojure, cpp, dlang, csharp, ecmascript, elixir, fsharp, erlang, go, groovy, haskell, java, javascript, lisp, lua, objective-c, ocaml, perl5, php, plsql, powershell, python, r, ruby, rust, scala, sml, swift"
-hello-world,29,"bash, c, clojure, cpp, coffeescript, dlang, csharp, ecmascript, elixir, fsharp, erlang, go, groovy, haskell, java, javascript, lua, objective-c, ocaml, perl5, perl6, php, powershell, python, r, ruby, rust, scala, swift"
+```text
+| Exercise                  | Count | Tracks                                                                                                                                                                                                                     |
+| ------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| hamming                   | 30    | bash, c, clojure, cpp, dlang, csharp, ecmascript, elixir, fsharp, erlang, go, groovy, haskell, java, javascript, lisp, lua, objective-c, ocaml, perl5, php, plsql, powershell, python, r, ruby, rust, scala, sml, swift    |
+| hello-world               | 29    | bash, c, clojure, cpp, coffeescript, dlang, csharp, ecmascript, elixir, fsharp, erlang, go, groovy, haskell, java, javascript, lua, objective-c, ocaml, perl5, perl6, php, powershell, python, r, ruby, rust, scala, swift |
 ...
-luhn-from,1,rust
-luhn-trait,1,rust
-nucleotide-codons,1,rust
+                                                                                                               |
+| luhn-trait                | 1     | rust                                                                                                                                                                                                                       |
+| nucleotide-codons         | 1     | rust                                                                                                        
 ```
 
 ### topics
@@ -145,17 +139,16 @@ nucleotide-codons,1,rust
 Outputs a listing of topics ordered by usage frequency descending with listing of tracks using that topic. The Topic name is lowercased due to some inconsistent casing between tracks.
 
 ```bash
-exercism-config-visualizations topics
+exercism-config-visualizations topics --format table
 ```
 
-```csv
-Topic,Count,Track
-strings,363,"c, cpp, csharp, ecmascript, elixir, fsharp, go, javascript, lisp, lua, objective-c, ocaml, php, python, r, ruby, scala, swift"
-transforming,199,"csharp, ecmascript, elixir, fsharp, go, javascript, lisp, lua, objective-c, ocaml, php, python, r, scala, swift"
+```text
+Topic                                        Count  Track
+strings                                      363    c, cpp, csharp, ecmascript, elixir, fsharp, go, javascript, lisp, lua, objective-c, ocaml, php, python, r, ruby, scala, swift
+transforming                                 199    csharp, ecmascript, elixir, fsharp, go, javascript, lisp, lua, objective-c, ocaml, php, python, r, scala, swift
 ...
-function overloading,1,scala
-metaprogramming,1,groovy
-
+function overloading                         1      scala
+metaprogramming                              1      groovy
 ```
 
 ### averages
@@ -166,15 +159,15 @@ Outputs the average difficulty and number of topics assigned to each exercise.
 exercism-config-visualizations averages
 ```
 
-```csv
-Track,Diff,Topics
-bash,1.50,1.93
-c,2.63,3.11
-clojure,1,0
+```text
+| Track        | Diff | Topics |
+| ------------ | ---- | ------ |
+| bash         | 1.50 | 1.93   |
+| c            | 2.63 | 3.11   |
 ...
-sml,1,0
-swift,3.79,2.06
-vbnet,1,0
+| sml          | 1    | 0      |
+| swift        | 3.79 | 2.06   |
+| vbnet        | 1    | 0      |
 ```
 
 ### difficulty
@@ -182,14 +175,18 @@ vbnet,1,0
 Listing of exercises grouped by difficulty level. You may specify multiple tracks for a combined listing.
 
 ```bash
-bin/exercism-config-visualizations difficulty go
+bin/exercism-config-visualizations difficulty go --format table
 ```
 
-```csv
-Track,Diff,Count,Exercises
-go,1,8,"hello-world, leap, gigasecond, hamming, raindrops, accumulate, etl, scrabble-score"
-go,2,9,"pangram, bob, difference-of-squares, grains, luhn, rna-transcription, roman-numerals, strain, nucleotide-count"
-...
-go,8,1,forth
-go,9,2,"react, connect"
+```text
+Track  Diff  Count  Exercises
+go     1     8      hello-world, leap, gigasecond, hamming, raindrops, accumulate, etl, scrabble-score
+go     2     9      pangram, bob, difference-of-squares, grains, luhn, rna-transcription, roman-numerals, strain, nucleotide-count
+go     3     25     clock, acronym, triangle, series, parallel-letter-frequency, isogram, crypto-square, largest-series-product, sieve, protein-translation, anagram, word-count, robot-name, atbash-cipher, phone-number, prime-factors, nth-prime, beer-song, wordy, meetup, tree-building, kindergarten-garden, simple-cipher, tournament, all-your-base
+go     4     13     twelve-days, house, pascals-triangle, bank-account, food-chain, perfect-numbers, allergies, diamond, custom-set, pig-latin, matrix, word-search, ledger
+go     5     18     error-handling, secret-handshake, queen-attack, sum-of-multiples, pythagorean-triplet, circular-buffer, transpose, diffie-hellman, grade-school, saddle-points, binary-search, binary-search-tree, paasio, minesweeper, poker, variable-length-quantity, change, bowling
+go     6     2      palindrome-products, robot-simulator
+go     7     4      bracket-push, say, ocr-numbers, pov
+go     8     1      forth
+go     9     2      react, connect
 ```

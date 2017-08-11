@@ -53,7 +53,7 @@ program
     getUniconfig(options.uniconfig)
       .then((uniconfig) => {
         let data = require(`./reports/${report}.js`)(uniconfig, targets),
-            format = (options.format ? options.format : 'csv'),
+            format = (options.format ? options.format : 'md'),
             output = data; // track output as what we will end up printing
 
         // a few things may happen based on output format
