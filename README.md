@@ -23,6 +23,7 @@ If you return false the program will assume you handled output yourself. Otherwi
 - [exercises](#exercises) - Active exercises per track: Track, Count, Exercises
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
 - [exercise-count](#exercise-count) - List the number of exercises per track: Track, Exercise Count
+- [implementation-count](#implementation-count) - List # of exercise implementations: Exercise, Count, Tracks
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
 - [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
 - [difficulty](#difficulty) - Group exercises by difficulty level: Track, Diff(iculty), Count, Exercises 
@@ -99,6 +100,23 @@ scala,86
 sml,8
 swift,75
 vbnet,7
+```
+
+### implementation-count
+This lists all the exercises found in the configfile, # of occurrences and list the tracks that implement it.
+
+```bash
+exercism-config-visualizations implementation-count
+```
+
+```csv
+Exercise,Count,Tracks
+hamming,30,"bash, c, clojure, cpp, dlang, csharp, ecmascript, elixir, fsharp, erlang, go, groovy, haskell, java, javascript, lisp, lua, objective-c, ocaml, perl5, php, plsql, powershell, python, r, ruby, rust, scala, sml, swift"
+hello-world,29,"bash, c, clojure, cpp, coffeescript, dlang, csharp, ecmascript, elixir, fsharp, erlang, go, groovy, haskell, java, javascript, lua, objective-c, ocaml, perl5, perl6, php, powershell, python, r, ruby, rust, scala, swift"
+...
+luhn-from,1,rust
+luhn-trait,1,rust
+nucleotide-codons,1,rust
 ```
 
 ### topics
