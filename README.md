@@ -15,8 +15,8 @@ npm install -g exercism-config-visualizations
 exercism-config-visualizations --format csv --uniconfig ./data/uniconfig.json averages
 ```
 
-* format - CSV is the default output format, you may also use 'table' for tabular output.
-* uniconfig - The location of your [uniconfig file](#uniconfig), defaults to internal (probably outdated) uniconfig. May also be provided via stdin.
+* format - choose the [output format](#output-format) for the output, defaults to csv
+* uniconfig - the location of your [uniconfig file](#uniconfig), defaults to internal (probably outdated) uniconfig. May also be provided via stdin
 
 ## Uniconfig
 This program uses for input a unified Exercism configuration file (the --uniconfig option or piped in via stdin) you may need to re-generate it from [exercism-uniconfig](https://www.npmjs.com/package/exercism-uniconfig). There is [one used by default](./data/uniconfig.json) but it may be outdated.
@@ -27,6 +27,14 @@ exercism-uniconfig | bin/exercism-config-visualizations topics
 ```
 
 It is more efficient to save it locally as a file and re-use that.
+
+## Output Format
+
+You may output the results of a standard report in a number of formats.
+
+* csv - this is the default format, useful for opening in a spreadsheet program or piping to another processor
+* md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/).
+* table - a general text table.
 
 ## Contribute
 
