@@ -1,6 +1,6 @@
 {
   "name": "exercism-config-visualizations",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A command line tool for exercism cross-track visualizations of configuration file information.",
   "main": "index.js",
   "scripts": {
