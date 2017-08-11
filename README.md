@@ -34,7 +34,7 @@ You may output the results of a standard report in a number of formats.
 
 * csv - this is the default format, useful for opening in a spreadsheet program or piping to another processor
 * md - a markdown table, good for including in [GitHub text](https://help.github.com/articles/organizing-information-with-tables/).
-* table - a general text table.
+* table - a no-frills text-based table.
 
 ## Contribute
 

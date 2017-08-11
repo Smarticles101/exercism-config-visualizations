@@ -1,13 +1,6 @@
 let os = require('os'),
-    table = require('cli-table2');
+    table = require('text-table');
 
 module.exports = function formatTable(data){
-
-  let t = new table({
-    head: data.shift()
-  });
-  for(let r of data){
-    t.push(r);
-  }
-  return t.toString() + os.EOL; // table looks better with a line break at end
+  return table(data).toString() + os.EOL; // table looks better with a line break at end
 }

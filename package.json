@@ -21,8 +21,8 @@
   "homepage": "https://github.com/tleen/exercism-config-visualizations#readme",
   "dependencies": {
     "array-to-csv": "1.0.1",
-    "cli-table2": "0.2.0",
     "commander": "2.11.0",
-    "markdown-table": "1.1.1"
+    "markdown-table": "1.1.1",
+    "text-table": "0.2.0"
   }
 }
