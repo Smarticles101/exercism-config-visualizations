@@ -50,6 +50,7 @@ If you return false the program will assume you handled output yourself. Otherwi
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
 - [exercise-count](#exercise-count) - List the number of exercises per track: Track, Exercise Count
 - [implementation-count](#implementation-count) - List # of exercise implementations: Exercise, Count, Tracks
+- [locks](#locks) - For a single exercise list Track, Core (status), Unlocked By, Unlocks
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
 - [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
 - [difficulty](#difficulty) - Group exercises by difficulty level: Track, Diff(iculty), Count, Exercises 
@@ -133,6 +134,30 @@ exercism-config-visualizations implementation-count
 | luhn-trait                | 1     | rust                                                                                                                                                                                                                       |
 | nucleotide-codons         | 1     | rust                                                                                                        
 ```
+
+### locks
+
+Given a exercise slug as the target, this will list all the tracks with the target exercise. It will show the Track slug, if the exercise has core status, which exercise (if any) unlocks it, which exercises (if any) it unlocks.
+
+```bash
+exercism-config-visualizations locks pangram
+```
+
+```text
+| Track       | Core | Unlocked By | Unlocks |
+| ----------- | ---- | ----------- | ------- |
+...
+| c           |      | isogram     |         |
+...
+| csharp      |      | hello-world |         |
+| ecmascript  | yes  |             |         |
+...
+| fsharp      |      | hello-world |         |
+...
+| swift       |      |             |         |
+
+```
+
 
 ### topics
 
