@@ -53,7 +53,8 @@ If you return false the program will assume you handled output yourself. Otherwi
 - [locks](#locks) - For a single exercise list Track, Core (status), Unlocked By, Unlocks
 - [topics](#topics) - All topics used across all tracks: Topic, Count, Tracks (using this topic)
 - [averages](#averages) - The average values of track configuration: Track, Diff(iculty), Topics (per exercise) 
-- [difficulty](#difficulty) - Group exercises by difficulty level: Track, Diff(iculty), Count, Exercises 
+- [difficulty](#difficulty) - Group exercises by difficulty level: Track, Diff(iculty), Count, Exercises
+- [core](#core) - Show all Track(s) with core Exercises and those exercises
 
 ### unconfigured
 
@@ -214,4 +215,47 @@ go     6     2      palindrome-products, robot-simulator
 go     7     4      bracket-push, say, ocr-numbers, pov
 go     8     1      forth
 go     9     2      react, connect
+```
+
+### core
+
+Show all the core exercises defined in all tracks, missing tracks have no core defined exercises.
+
+```bash
+exercism-config-visualizations core --format json | jq .
+```
+
+([jq](https://stedolan.github.io/jq/) is handy command line tool for manipulating JSON, in this case pretty printing it.)
+
+```javascript
+[
+  [
+    "Track",
+    "Exercises"
+  ],
+  [
+    "bash",
+    [
+      "hello-world",
+      "leap",
+      "pangram",
+      "error-handling"
+    ]
+  ],
+  [
+    "c",
+    [
+      "hello-world",
+      "isogram",
+      "gigasecond",
+      "hamming",
+      // ...
+      "pascals-triangle",
+      "binary",
+      "palindrome-products",
+      "scrabble-score"
+    ]
+  ],
+  // ...
+]
 ```
