@@ -46,6 +46,7 @@ If you return false the program will assume you handled output yourself. Otherwi
 ## Reports
 
 - [unconfigured](#unconfigured) - List Track(s) that are missing: Diff(iculty) or Topics
+- [track](#track) - Active exercises for a single track: Exercise, Difficulty, Core, Unlocked By, Unlocks, Topics
 - [exercises](#exercises) - Active exercises per track: Track, Count, Exercises
 - [exercise](#exercise) - Information about exercises across tracks: Exercise, Track, Diff(iculty), Topics
 - [exercise-count](#exercise-count) - List the number of exercises per track: Track, Exercise Count
@@ -73,6 +74,26 @@ exercism-config-visualizations unconfigured
 | sml          | no   | no     |
 | vbnet        | no   | no     |
 
+```
+
+### track
+
+List information about all active (non-deprecated) exercises in a track.
+
+```bash
+exercism-config-visualizations track r --format table
+```
+
+```text
+Exercise                Difficulty  Core  Unlocked By       Unlocks            Topics
+leap                    1           yes                     perfect-numbers    booleans, integers, logic
+hamming                 1           yes                     rna-transcription  strings, filtering
+rna-transcription       1                 hamming                              strings, transforming
+...
+rotational-cipher       3           yes                                        strings
+anagram                 3           yes                     isogram, pangram   strings, filtering
+pascals-triangle        3                 sum-of-multiples                     control_flow_conditionals, mathematics
+tournament              4                 phone-number                         text_formatting, parsing
 ```
 
 ### exercises
