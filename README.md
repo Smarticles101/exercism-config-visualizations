@@ -159,7 +159,7 @@ exercism-config-visualizations implementation-count
 
 ### locks
 
-Given a exercise slug as the target, this will list all the tracks with the target exercise. It will show the Track slug, if the exercise has core status, which exercise (if any) unlocks it, which exercises (if any) it unlocks.
+Given a exercise slug as the target, this will list all the tracks with the target exercise. It will show the Track slug, if the exercise has core status, which exercise (if any) unlocks it, which exercises (if any) it unlocks. This will not show tracks that have yet to implement the unlocking structure.
 
 ```bash
 exercism-config-visualizations locks pangram

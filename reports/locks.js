@@ -16,9 +16,13 @@ module.exports = function(configfile, targets){
     // early exit if the exercise is unimplemented in this track
     if(!exercise) continue;
 
+    // early exit if this track has not yet implemented locking
+    // (we cant find a single exercise with a value in the unlocked_by var)
+    if(track.exercises.filter(e => !!e.unlocked_by).length === 0) continue;
+
     // go through all the exercises in the track again to see if any are unlocked
-    // buy this target exercise
-    for(let e in track.exercises){
+    // by this target exercise
+    for(let e of track.exercises){
       if(e.unlocked_by == exercise.slug) unlocks.push(e.slug);
     }
 
